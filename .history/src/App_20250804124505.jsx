@@ -24,28 +24,6 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
-  // Ensure proper scroll position on load and prevent zoom issues on mobile
-  useEffect(() => {
-    // Scroll to top on initial load
-    window.scrollTo(0, 0);
-    
-    // Prevent zoom on double tap for mobile
-    let lastTouchEnd = 0;
-    const preventZoom = (e) => {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    };
-    
-    document.addEventListener('touchend', preventZoom, { passive: false });
-    
-    return () => {
-      document.removeEventListener('touchend', preventZoom);
-    };
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

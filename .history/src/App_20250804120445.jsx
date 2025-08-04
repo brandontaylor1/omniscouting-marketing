@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import './App.css'
 
@@ -24,42 +24,11 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
-  // Ensure proper scroll position on load and prevent zoom issues on mobile
-  useEffect(() => {
-    // Scroll to top on initial load
-    window.scrollTo(0, 0);
-    
-    // Prevent zoom on double tap for mobile
-    let lastTouchEnd = 0;
-    const preventZoom = (e) => {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    };
-    
-    document.addEventListener('touchend', preventZoom, { passive: false });
-    
-    return () => {
-      document.removeEventListener('touchend', preventZoom);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  };
-
   const handleScheduleDemo = () => {
     setShowContactForm(true);
     setShowFeatures(false);
     setShowPricing(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowFeatures = () => {
@@ -67,7 +36,6 @@ function App() {
     setShowContactForm(false);
     setShowPricing(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowPricing = () => {
@@ -75,7 +43,6 @@ function App() {
     setShowContactForm(false);
     setShowFeatures(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowAbout = () => {
@@ -83,7 +50,6 @@ function App() {
     setShowContactForm(false);
     setShowFeatures(false);
     setShowPricing(false);
-    scrollToTop();
   };
 
   const handleBackToHome = () => {
@@ -101,7 +67,6 @@ function App() {
       message: ''
     });
     setSubmitStatus(null);
-    scrollToTop();
   };
 
   const handleInputChange = (e) => {
@@ -159,7 +124,7 @@ function App() {
         onPricingClick={handleShowPricing}
         onContactClick={handleScheduleDemo}
       />
-        <section className="relative h-screen w-screen overflow-hidden touch-pan-y">
+        <section className="relative h-screen w-screen overflow-hidden">
           {/* Video Background */}
           <video
             autoPlay
@@ -194,19 +159,6 @@ function App() {
                 <p className="max-w-lg text-left mb-8 sm:mb-10 text-lg sm:text-xl md:text-2xl font-neue-montreal leading-relaxed">
                   The all-in-one player management system built for teams that want to win on and off the field.
                 </p>
-                
-                {/* Existing customer notice */}
-                <div className="mb-6 p-4 bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm">
-                  <p className="text-white/90 text-sm sm:text-base font-neue-montreal">
-                    Already have an account? 
-                    <a 
-                      href="https://app.omniscouting.com" 
-                      className="text-blue-300 hover:text-blue-200 font-semibold ml-2 underline transition"
-                    >
-                      Login to your dashboard →
-                    </a>
-                  </p>
-                </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <button 
                     onClick={handleScheduleDemo}
@@ -232,7 +184,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-6 sm:px-12 md:px-20 overflow-y-auto"
               >
                 <div className="max-w-4xl w-full py-8">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center font-formula">About Omni Scouting</h2>
@@ -323,7 +275,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-20 overflow-y-auto"
               >
                 <div className="max-w-6xl w-full py-8">
                   <h2 className="text-5xl font-bold mb-4 text-center font-formula">Key Features</h2>
@@ -422,7 +374,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-20 overflow-y-auto"
               >
                 <div className="max-w-5xl w-full py-8">
                   <h2 className="text-5xl font-bold mb-4 text-center font-formula">Simple Pricing</h2>
@@ -446,7 +398,7 @@ function App() {
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Email support</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Basic analytics</li>
                       </ul>
-                                            <button className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition">
+                      <button className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition">
                         Get Started
                       </button>
                     </motion.div>
@@ -493,19 +445,6 @@ function App() {
                         Contact Sales
                       </button>
                     </motion.div>
-                  </div>
-                  
-                  {/* Existing customer notice */}
-                  <div className="text-center mb-6">
-                    <p className="text-white/80 text-sm sm:text-base font-neue-montreal">
-                      Already a customer? 
-                      <a 
-                        href="https://app.omniscouting.com" 
-                        className="text-blue-300 hover:text-blue-200 font-semibold ml-2 underline transition"
-                      >
-                        Login to your account
-                      </a>
-                    </p>
                   </div>
                   
                   <div className="flex justify-center gap-4">
@@ -566,14 +505,14 @@ function App() {
                       )}
                       
                       <form onSubmit={handleFormSubmit} className="space-y-4">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <input 
                             type="text" 
                             name="firstName"
                             placeholder="First Name" 
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className="w-full p-3 sm:p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition text-sm sm:text-base" 
+                            className="w-full p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition" 
                             required 
                           />
                           <input 
@@ -582,7 +521,7 @@ function App() {
                             placeholder="Last Name" 
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className="w-full p-3 sm:p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition text-sm sm:text-base" 
+                            className="w-full p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition" 
                             required 
                           />
                         </div>
@@ -592,7 +531,7 @@ function App() {
                           placeholder="Email Address" 
                           value={formData.email}
                           onChange={handleInputChange}
-                          className="w-full p-3 sm:p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition text-sm sm:text-base" 
+                          className="w-full p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition" 
                           required 
                         />
                         <input 
@@ -601,14 +540,14 @@ function App() {
                           placeholder="Organization/School" 
                           value={formData.organization}
                           onChange={handleInputChange}
-                          className="w-full p-3 sm:p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition text-sm sm:text-base" 
+                          className="w-full p-4 border border-white/30 rounded-lg bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition" 
                           required 
                         />
                         <select 
                           name="organizationType"
                           value={formData.organizationType}
                           onChange={handleInputChange}
-                          className="w-full p-3 sm:p-4 border border-white/30 rounded-lg bg-transparent text-white focus:border-white focus:outline-none transition text-sm sm:text-base"
+                          className="w-full p-4 border border-white/30 rounded-lg bg-transparent text-white focus:border-white focus:outline-none transition"
                           required
                         >
                           <option value="" className="bg-black">Select Organization Type</option>
@@ -621,21 +560,21 @@ function App() {
                           placeholder="Tell us about your needs (optional)" 
                           value={formData.message}
                           onChange={handleInputChange}
-                          className="w-full p-3 sm:p-4 border border-white/30 rounded-lg h-20 sm:h-24 bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition resize-none text-sm sm:text-base" 
+                          className="w-full p-4 border border-white/30 rounded-lg h-24 bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition resize-none" 
                         ></textarea>
                         
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <div className="flex gap-4 pt-4">
                           <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className="flex-1 bg-white text-black px-6 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+                            className="flex-1 bg-white text-black px-6 py-4 rounded-lg font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed"
                           >
                             {isSubmitting ? 'Sending...' : 'Schedule Demo'}
                           </button>
                           <button 
                             type="button"
                             onClick={handleBackToHome}
-                            className="px-6 py-3 sm:py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition text-sm sm:text-base"
+                            className="px-6 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
                           >
                             Back to Home
                           </button>

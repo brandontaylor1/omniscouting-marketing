@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import './App.css'
 
@@ -23,28 +23,6 @@ function App() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
-
-  // Ensure proper scroll position on load and prevent zoom issues on mobile
-  useEffect(() => {
-    // Scroll to top on initial load
-    window.scrollTo(0, 0);
-    
-    // Prevent zoom on double tap for mobile
-    let lastTouchEnd = 0;
-    const preventZoom = (e) => {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    };
-    
-    document.addEventListener('touchend', preventZoom, { passive: false });
-    
-    return () => {
-      document.removeEventListener('touchend', preventZoom);
-    };
-  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -159,7 +137,7 @@ function App() {
         onPricingClick={handleShowPricing}
         onContactClick={handleScheduleDemo}
       />
-        <section className="relative h-screen w-screen overflow-hidden touch-pan-y">
+        <section className="relative h-screen w-screen overflow-hidden">
           {/* Video Background */}
           <video
             autoPlay
@@ -422,7 +400,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-20 overflow-y-auto"
               >
                 <div className="max-w-5xl w-full py-8">
                   <h2 className="text-5xl font-bold mb-4 text-center font-formula">Simple Pricing</h2>

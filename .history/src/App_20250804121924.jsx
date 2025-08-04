@@ -1,6 +1,6 @@
 import Navbar from './components/Navbar';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import './App.css'
 
@@ -24,42 +24,11 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
-  // Ensure proper scroll position on load and prevent zoom issues on mobile
-  useEffect(() => {
-    // Scroll to top on initial load
-    window.scrollTo(0, 0);
-    
-    // Prevent zoom on double tap for mobile
-    let lastTouchEnd = 0;
-    const preventZoom = (e) => {
-      const now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    };
-    
-    document.addEventListener('touchend', preventZoom, { passive: false });
-    
-    return () => {
-      document.removeEventListener('touchend', preventZoom);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  };
-
   const handleScheduleDemo = () => {
     setShowContactForm(true);
     setShowFeatures(false);
     setShowPricing(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowFeatures = () => {
@@ -67,7 +36,6 @@ function App() {
     setShowContactForm(false);
     setShowPricing(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowPricing = () => {
@@ -75,7 +43,6 @@ function App() {
     setShowContactForm(false);
     setShowFeatures(false);
     setShowAbout(false);
-    scrollToTop();
   };
 
   const handleShowAbout = () => {
@@ -83,7 +50,6 @@ function App() {
     setShowContactForm(false);
     setShowFeatures(false);
     setShowPricing(false);
-    scrollToTop();
   };
 
   const handleBackToHome = () => {
@@ -101,7 +67,6 @@ function App() {
       message: ''
     });
     setSubmitStatus(null);
-    scrollToTop();
   };
 
   const handleInputChange = (e) => {
@@ -159,7 +124,7 @@ function App() {
         onPricingClick={handleShowPricing}
         onContactClick={handleScheduleDemo}
       />
-        <section className="relative h-screen w-screen overflow-hidden touch-pan-y">
+        <section className="relative h-screen w-screen overflow-hidden">
           {/* Video Background */}
           <video
             autoPlay
@@ -232,7 +197,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-6 sm:px-12 md:px-20 overflow-y-auto"
               >
                 <div className="max-w-4xl w-full py-8">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center font-formula">About Omni Scouting</h2>
@@ -323,7 +288,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-20 overflow-y-auto"
               >
                 <div className="max-w-6xl w-full py-8">
                   <h2 className="text-5xl font-bold mb-4 text-center font-formula">Key Features</h2>
@@ -422,7 +387,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-20 overflow-y-auto"
               >
                 <div className="max-w-5xl w-full py-8">
                   <h2 className="text-5xl font-bold mb-4 text-center font-formula">Simple Pricing</h2>
@@ -506,6 +471,42 @@ function App() {
                         Login to your account
                       </a>
                     </p>
+                  </div>
+                  
+                  <div className="flex justify-center gap-4">
+                    <button 
+                      onClick={handleScheduleDemo}
+                      className="bg-white text-black px-8 py-4 rounded-lg font-medium hover:bg-gray-200 transition"
+                    >
+                      Schedule Demo
+                    </button>
+                    <button 
+                      onClick={handleBackToHome}
+                      className="px-8 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
+                    >
+                      Back to Home
+                    </button>
+                  </div>
+                    
+                    <motion.div 
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="border border-white/20 rounded-lg p-8 bg-white/5 backdrop-blur-sm relative"
+                    >
+                      <h3 className="text-3xl font-bold mb-2 text-white font-formula">Pro / Enterprise</h3>
+                      <div className="text-5xl font-bold mb-6 text-white">Custom</div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
+                        <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Unlimited players</li>
+                        <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>API + CRM integration</li>
+                        <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Dedicated account manager</li>
+                        <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>24/7 phone support</li>
+                        <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Custom features</li>
+                      </ul>
+                      <button className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition">
+                        Contact Sales
+                      </button>
+                    </motion.div>
                   </div>
                   
                   <div className="flex justify-center gap-4">
