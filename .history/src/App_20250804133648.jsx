@@ -65,7 +65,7 @@ function App() {
     setLoadingProgress(100);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2300); // 2 seconds pause + 300ms for smooth transition
+    }, 300); // Small delay for smooth transition
   };
 
   const handleVideoError = () => {
@@ -73,7 +73,7 @@ function App() {
     setLoadingProgress(100);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2300); // Same timing for consistency
+    }, 300);
   };
 
   const scrollToTop = () => {
@@ -183,59 +183,6 @@ function App() {
 
   return (
     <>
-      {/* Loading Screen */}
-      <AnimatePresence>
-        {isLoading && (
-          <motion.div
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="fixed inset-0 z-50 bg-black flex flex-col items-center justify-center"
-          >
-            <div className="text-center">
-              {/* Logo */}
-              <motion.img 
-                src="/images/logowhite.svg" 
-                alt="Omni Scouting" 
-                className="w-64 sm:w-80 md:w-96 mb-8 mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              />
-              
-              {/* Loading Bar */}
-              <div className="w-80 sm:w-96 mx-auto">
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  className="mb-4"
-                >
-                  <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className="h-full bg-white rounded-full"
-                      initial={{ width: "0%" }}
-                      animate={{ width: `${loadingProgress}%` }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-                  </div>
-                </motion.div>
-                
-                {/* Loading Text */}
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="text-white/70 text-sm font-neue-montreal"
-                >
-                  Loading your experience...
-                </motion.p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <Navbar 
         onAboutClick={handleShowAbout}
         onFeaturesClick={handleShowFeatures}
@@ -249,9 +196,8 @@ function App() {
             loop
             muted
             playsInline
-            onLoadedData={handleVideoLoad}
-            onError={handleVideoError}
             className="object-cover w-full h-full fixed inset-0 z-0"
+            poster={backgroundImage} // Fallback image while video loads
           >
             <source src="/videos/stadium.mp4" type="video/mp4" />
             <source src="/videos/stadium.mov" type="video/quicktime" />

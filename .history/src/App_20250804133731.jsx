@@ -65,7 +65,7 @@ function App() {
     setLoadingProgress(100);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2300); // 2 seconds pause + 300ms for smooth transition
+    }, 300); // Small delay for smooth transition
   };
 
   const handleVideoError = () => {
@@ -73,7 +73,7 @@ function App() {
     setLoadingProgress(100);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2300); // Same timing for consistency
+    }, 300);
   };
 
   const scrollToTop = () => {
@@ -213,7 +213,7 @@ function App() {
                 >
                   <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
                     <motion.div
-                      className="h-full bg-white rounded-full"
+                      className="h-full bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
                       initial={{ width: "0%" }}
                       animate={{ width: `${loadingProgress}%` }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
