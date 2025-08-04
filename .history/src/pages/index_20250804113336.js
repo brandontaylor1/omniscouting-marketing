@@ -48,28 +48,28 @@ const neueMontreal = localFont({
 
 export default function Home() {
   return (
-    <section classname="relative w-full h-full">
-    <Image 
-      src="/images/stadium-bg.png"
-      alt="Stadium Background"
-      fill
-      className="object-cover h-full w-full z-0"    
-    />
+      <>
+        <Head 
+          title="Omni Scouting - Your Ultimate Sports Analytics Partner"
+          description="Revolutionize your sports analytics with Omni Scouting. Get real-time insights, detailed reports, and expert analysis to elevate your game."
+          keywords="sports analytics, scouting, real-time insights, performance analysis, team management"
+          author="Omni Scouting Team"
+          viewport="width=device-width, initial-scale=1.0"
+          charset="UTF-8"
+          /> 
+        <section classname="relative w-full h-full">
+          <Image 
+            src="/images/stadium-bg.png"
+            alt="Stadium Background"
+            fill
+            className="object-cover h-full w-full z-0"    
+            />
 
-    <div classname="absolute inset-0 z-10">
-      test
+          <div classname="absolute inset-0 z-10">
+            test
 
-    </div>
-
-    </section>
-
-
-    
-    
-    
-    
-
-     
-        
+          </div>
+        </section>
+      </>
   );
 }
