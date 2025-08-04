@@ -23,7 +23,7 @@ const Navbar = ({ onAboutClick, onFeaturesClick, onPricingClick, onContactClick 
       <nav className='flex items-center justify-between p-3 sm:p-4 bg-black/50 backdrop-blur-md fixed w-full z-30'>
           {/* Logo on the left */}
           <div className="flex items-center">
-            <img src="/images/OmniLogoWhiteNoSlogan.svg" alt="Omni Scouting" className="h-6 sm:h-8" />
+            <img src="/images/logowhite.svg" alt="Omni Scouting" className="h-6 sm:h-8" />
           </div>
           
           {/* Desktop Navigation - Hidden on mobile */}

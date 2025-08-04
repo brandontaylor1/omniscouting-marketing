@@ -188,16 +188,16 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center sm:items-start justify-center text-white px-6 sm:px-12 md:px-20"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-start justify-center text-white px-6 sm:px-12 md:px-20"
               >
                 <img src="/images/logowhite.svg" alt="Logo" className="w-2/3 sm:w-1/2 md:w-1/3 mb-6" />
-                <p className="max-w-lg text-center sm:text-left mb-8 sm:mb-10 text-lg sm:text-xl md:text-2xl font-neue-montreal leading-relaxed">
+                <p className="max-w-lg text-left mb-8 sm:mb-10 text-lg sm:text-xl md:text-2xl font-neue-montreal leading-relaxed">
                   The all-in-one player management system built for teams that want to win on and off the field.
                 </p>
                 
                 {/* Existing customer notice */}
-                <div className="mb-6 p-4 bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm w-full sm:w-auto">
-                  <p className="text-white/90 text-sm sm:text-base font-neue-montreal text-center sm:text-left">
+                <div className="mb-6 p-4 bg-white/10 border border-white/20 rounded-lg backdrop-blur-sm">
+                  <p className="text-white/90 text-sm sm:text-base font-neue-montreal">
                     Already have an account? 
                     <a 
                       href="https://app.omniscouting.com" 
@@ -207,7 +207,7 @@ function App() {
                     </a>
                   </p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <div className="flex flex-col gap-4 w-full">
                   <button 
                     onClick={handleScheduleDemo}
                     className="w-full sm:w-auto bg-white text-black px-6 sm:px-8 py-4 rounded-lg font-medium hover:bg-gray-300 transition text-center"
@@ -232,7 +232,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
               >
                 <div className="max-w-4xl w-full py-8">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center font-formula">About Omni Scouting</h2>
@@ -323,11 +323,11 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
               >
                 <div className="max-w-6xl w-full py-8">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center font-formula">Key Features</h2>
-                  <p className="text-white/80 text-center mb-8 sm:mb-12 text-base sm:text-lg md:text-xl font-neue-montreal max-w-3xl mx-auto">
+                  <h2 className="text-5xl font-bold mb-4 text-center font-formula">Key Features</h2>
+                  <p className="text-white/80 text-center mb-12 text-xl font-neue-montreal max-w-3xl mx-auto">
                     Everything you need to manage players, track performance, and make data-driven decisions.
                   </p>
                   
@@ -399,16 +399,16 @@ function App() {
                     </motion.div>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <div className="flex justify-center gap-4">
                     <button 
                       onClick={handleScheduleDemo}
-                      className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-lg font-medium hover:bg-gray-200 transition"
+                      className="bg-white text-black px-8 py-4 rounded-lg font-medium hover:bg-gray-200 transition"
                     >
                       Schedule Demo
                     </button>
                     <button 
                       onClick={handleBackToHome}
-                      className="w-full sm:w-auto px-8 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
+                      className="px-8 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
                     >
                       Back to Home
                     </button>
@@ -422,35 +422,32 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-center text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
+                className="absolute inset-0 bg-black/70 z-10 flex flex-col items-center justify-start text-white px-6 sm:px-12 md:px-20 overflow-y-auto pt-4 sm:pt-8"
               >
-                <div className="max-w-6xl w-full py-8">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-center font-formula">Simple Pricing</h2>
-                  <p className="text-white/80 text-center mb-8 sm:mb-12 text-base sm:text-lg md:text-xl font-neue-montreal max-w-3xl mx-auto">
+                <div className="max-w-5xl w-full py-8">
+                  <h2 className="text-5xl font-bold mb-4 text-center font-formula">Simple Pricing</h2>
+                  <p className="text-white/80 text-center mb-12 text-xl font-neue-montreal max-w-3xl mx-auto">
                     Choose the plan that fits your organization. All plans come with onboarding support and full access to all modules.
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <motion.div 
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.2, duration: 0.5 }}
-                      className="border border-white/20 rounded-lg p-6 lg:p-8 bg-white/5 backdrop-blur-sm relative h-full flex flex-col"
+                      className="border border-white/20 rounded-lg p-8 bg-white/5 backdrop-blur-sm relative"
                     >
                       <h3 className="text-3xl font-bold mb-2 text-white font-formula">High School</h3>
-                      <div className="text-3xl lg:text-4xl font-bold mb-6 text-white">Contact for Pricing</div>
-                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal flex-grow">
+                      <div className="text-5xl font-bold mb-6 text-white">$99<span className="text-xl text-white/70">/mo</span></div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Up to 75 players</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Full feature access</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Onboarding support</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Email support</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Basic analytics</li>
                       </ul>
-                      <button 
-                        onClick={handleScheduleDemo}
-                        className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition mt-auto"
-                      >
-                        Contact for Pricing
+                                            <button className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition">
+                        Get Started
                       </button>
                     </motion.div>
                     
@@ -458,25 +455,22 @@ function App() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.5 }}
-                      className="border border-blue-400 rounded-lg p-6 lg:p-8 bg-blue-500/10 backdrop-blur-sm relative h-full flex flex-col"
+                      className="border border-blue-400 rounded-lg p-8 bg-blue-500/10 backdrop-blur-sm relative"
                     >
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
                         Most Popular
                       </div>
                       <h3 className="text-3xl font-bold mb-2 text-white font-formula">College</h3>
-                      <div className="text-3xl lg:text-4xl font-bold mb-6 text-white">Contact for Pricing</div>
-                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal flex-grow">
+                      <div className="text-5xl font-bold mb-6 text-white">$299<span className="text-xl text-white/70">/mo</span></div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Up to 150 players</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Team & staff dashboards</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Advanced integrations</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Priority support</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Advanced analytics</li>
                       </ul>
-                      <button 
-                        onClick={handleScheduleDemo}
-                        className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition mt-auto"
-                      >
-                        Contact for Pricing
+                      <button className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition">
+                        Get Started
                       </button>
                     </motion.div>
                     
@@ -484,22 +478,19 @@ function App() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
-                      className="border border-white/20 rounded-lg p-6 lg:p-8 bg-white/5 backdrop-blur-sm relative h-full flex flex-col"
+                      className="border border-white/20 rounded-lg p-8 bg-white/5 backdrop-blur-sm relative"
                     >
                       <h3 className="text-3xl font-bold mb-2 text-white font-formula">Pro / Enterprise</h3>
-                      <div className="text-3xl lg:text-4xl font-bold mb-6 text-white">Contact for Pricing</div>
-                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal flex-grow">
+                      <div className="text-5xl font-bold mb-6 text-white">Custom</div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Unlimited players</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>API + CRM integration</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Dedicated account manager</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>24/7 phone support</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Custom features</li>
                       </ul>
-                      <button 
-                        onClick={handleScheduleDemo}
-                        className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition mt-auto"
-                      >
-                        Contact for Pricing
+                      <button className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition">
+                        Contact Sales
                       </button>
                     </motion.div>
                   </div>
@@ -517,16 +508,16 @@ function App() {
                     </p>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <div className="flex justify-center gap-4">
                     <button 
                       onClick={handleScheduleDemo}
-                      className="w-full sm:w-auto bg-white text-black px-8 py-4 rounded-lg font-medium hover:bg-gray-200 transition"
+                      className="bg-white text-black px-8 py-4 rounded-lg font-medium hover:bg-gray-200 transition"
                     >
                       Schedule Demo
                     </button>
                     <button 
                       onClick={handleBackToHome}
-                      className="w-full sm:w-auto px-8 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
+                      className="px-8 py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition"
                     >
                       Back to Home
                     </button>
@@ -633,18 +624,18 @@ function App() {
                           className="w-full p-3 sm:p-4 border border-white/30 rounded-lg h-20 sm:h-24 bg-transparent text-white placeholder-white/70 focus:border-white focus:outline-none transition resize-none text-sm sm:text-base" 
                         ></textarea>
                         
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <div className="flex flex-col gap-4 pt-4 w-full">
                           <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className="w-full sm:flex-1 bg-white text-black px-6 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+                            className="w-full bg-white text-black px-6 py-3 sm:py-4 rounded-lg font-medium hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                           >
                             {isSubmitting ? 'Sending...' : 'Schedule Demo'}
                           </button>
                           <button 
                             type="button"
                             onClick={handleBackToHome}
-                            className="w-full sm:w-auto px-6 py-3 sm:py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition text-sm sm:text-base"
+                            className="w-full px-6 py-3 sm:py-4 border border-white/30 rounded-lg font-medium hover:bg-white/10 transition text-sm sm:text-base"
                           >
                             Back to Home
                           </button>

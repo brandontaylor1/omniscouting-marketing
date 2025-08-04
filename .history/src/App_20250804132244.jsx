@@ -458,14 +458,14 @@ function App() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3, duration: 0.5 }}
-                      className="border border-blue-400 rounded-lg p-6 lg:p-8 bg-blue-500/10 backdrop-blur-sm relative h-full flex flex-col"
+                      className="border border-blue-400 rounded-lg p-8 bg-blue-500/10 backdrop-blur-sm relative"
                     >
                       <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
                         Most Popular
                       </div>
                       <h3 className="text-3xl font-bold mb-2 text-white font-formula">College</h3>
-                      <div className="text-3xl lg:text-4xl font-bold mb-6 text-white">Contact for Pricing</div>
-                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal flex-grow">
+                      <div className="text-2xl font-bold mb-6 text-white">Contact for Pricing</div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Up to 150 players</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Team & staff dashboards</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Advanced integrations</li>
@@ -474,7 +474,7 @@ function App() {
                       </ul>
                       <button 
                         onClick={handleScheduleDemo}
-                        className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition mt-auto"
+                        className="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition"
                       >
                         Contact for Pricing
                       </button>
@@ -484,11 +484,11 @@ function App() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4, duration: 0.5 }}
-                      className="border border-white/20 rounded-lg p-6 lg:p-8 bg-white/5 backdrop-blur-sm relative h-full flex flex-col"
+                      className="border border-white/20 rounded-lg p-8 bg-white/5 backdrop-blur-sm relative"
                     >
                       <h3 className="text-3xl font-bold mb-2 text-white font-formula">Pro / Enterprise</h3>
-                      <div className="text-3xl lg:text-4xl font-bold mb-6 text-white">Contact for Pricing</div>
-                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal flex-grow">
+                      <div className="text-2xl font-bold mb-6 text-white">Contact for Pricing</div>
+                      <ul className="text-white/80 text-left space-y-3 mb-8 font-neue-montreal">
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Unlimited players</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>API + CRM integration</li>
                         <li className="flex items-center"><span className="text-green-400 mr-2">✓</span>Dedicated account manager</li>
@@ -497,7 +497,7 @@ function App() {
                       </ul>
                       <button 
                         onClick={handleScheduleDemo}
-                        className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition mt-auto"
+                        className="w-full bg-white text-black py-3 rounded-lg font-medium hover:bg-gray-200 transition"
                       >
                         Contact for Pricing
                       </button>
